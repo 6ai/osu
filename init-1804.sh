@@ -53,8 +53,9 @@ chmod +x jq && mv -v jq /usr/bin
 
 # python
 add-apt-repository ppa:deadsnakes/ppa -y && apt-get update
-apt-get install -y --no-install-recommends python3-dev python3-pip python3-setuptools python3-distutils python3.8-dev
-python3.8 -m pip install -U pip setuptools
+apt-get install -y --no-install-recommends python3-dev python3-pip python3-setuptools python3.8-distutils python3.8-dev
+python3.8 -m easy_install pip
+# python3.8 -m pip install -U pip setuptools
 
 # go
 GO_PATH=/go
