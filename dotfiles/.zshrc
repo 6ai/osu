@@ -120,6 +120,25 @@ function gen_sshkey() {
 }
 
 function mcd() { mkdir -p "$1" && cd "$1"; }
+function jv() { < "$1" jq -C . | less -R }
+
+function mktgz() {
+    if [[ -z "$1" ]]; then
+        echo "missing source target"
+        exit 1
+    else
+        tar cvzf "${1%%/}.tgz" "${1%%/}/"
+    fi
+}
+
+function mkzip() {
+    if [[ -z "$1" ]]; then
+        echo "missing source target"
+        exit 1
+    else
+        zip -r "${1%%/}.zip" "$1"
+    fi
+}
 
 alias l='ls -CF'
 alias la='ls -A'
