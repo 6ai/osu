@@ -178,3 +178,8 @@ alias gmt='go mod tidy'
 alias gmg='go mod graph'
 alias gga='go get -v -t -d -insecure ./...'
 alias gg='go get -v -t -d -insecure'
+
+# load more
+if [ -f ~/.zshrc_own ]; then
+    source ~/.zshrc_own
+fi

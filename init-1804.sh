@@ -33,7 +33,7 @@ apt-get install -y --no-install-recommends \
 
 # set timezone
 export TZ='Asia/Shanghai'
-ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ >/etc/timezone
 
 # git init
 git lfs install
@@ -72,6 +72,10 @@ export PATH=$PATH:$GOBIN:/usr/local/go/bin
 go get github.com/zb64/zb64
 go get github.com/sqs/goreturns
 go get golang.org/x/tools/cmd/goimports
+
+# outline
+wget -q -O install_outline.sh https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh
+chmod +x install_outline.sh
 
 echo "Done"
 cd ~
