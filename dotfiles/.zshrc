@@ -140,6 +140,15 @@ function mkzip() {
     fi
 }
 
+function dl() {
+    case $# in
+        2) curl -L -o "$2" "$1" ;;
+        1) curl -L -O "$1" ;;
+        0) echo "missing url";;
+        *) echo "wtf?"
+    esac
+}
+
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -lashF'
