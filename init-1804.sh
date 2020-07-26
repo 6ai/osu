@@ -18,6 +18,9 @@ ZSH_RT=~/.oh-my-zsh
 
 ZSH_AS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 [ ! -d "$ZSH_AS" ] && git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_AS"
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
 chsh -s "$(which zsh)"
 
 # deploy dotfiles

@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Attempt to be Zsh native
 export TZ='Asia/Shanghai'
 
@@ -13,7 +20,8 @@ export ZSH="/root/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="geoffgarside"
-ZSH_THEME="ys"
+# ZSH_THEME="ys"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -125,7 +133,7 @@ function jv() { < "$1" jq -C . | less -R }
 function mktgz() {
     if [[ -z "$1" ]]; then
         echo "missing source target"
-        exit 1
+        return 1
     else
         tar cvzf "${1%%/}.tgz" "${1%%/}/"
     fi
@@ -134,7 +142,7 @@ function mktgz() {
 function mkzip() {
     if [[ -z "$1" ]]; then
         echo "missing source target"
-        exit 1
+        return 1
     else
         zip -r "${1%%/}.zip" "$1"
     fi
@@ -192,3 +200,6 @@ alias gg='go get -v -t -d -insecure'
 if [ -f ~/.zshrc_own ]; then
     source ~/.zshrc_own
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
